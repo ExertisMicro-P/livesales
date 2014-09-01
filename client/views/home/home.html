@@ -85,20 +85,25 @@
 
 <template name="message">
   <div class="row messagerow">
-    <div class="col-md-2">
-      {{createAtMoment}}
-    </div>
-    <div class="col-md-2 originator">
-      {{originator}} said:
-    </div>
-    <div class="col-md-5">
-      {{{formattedMessage}}}
-    </div>
-    
-    <div class="col-md-2 recipient">
-       to {{recipient}}
-    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 messageheader">
+          {{createAtMoment}} - {{originator}} said:
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          {{{formattedMessage}}}
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-6 recipient messagefooter">
+           to {{recipient}}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

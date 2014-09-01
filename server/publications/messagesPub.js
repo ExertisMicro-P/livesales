@@ -1,9 +1,11 @@
 Meteor.publish('messages', function () {
+  currentuser = Meteor.users.findOne({_id:this.userId});
+  console.log(currentuser.username);
   return messages.find(
        {$or: [
-               {recipient: this.username},
+               {recipient: currentuser.username},
                {recipient: '(BROADCAST)'},
-               {originator: this.username}
+               {originator: currentuser.username} 
       ]}
   );
   

@@ -8,6 +8,7 @@
     "bootstrap-3": {},
     "moment": {},
     "font-awesome": {},
-    "animated-each": {}
+    "animated-each": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

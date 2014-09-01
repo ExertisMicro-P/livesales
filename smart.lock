@@ -12,7 +12,8 @@
       "bootstrap-3": {},
       "moment": {},
       "font-awesome": {},
-      "animated-each": {}
+      "animated-each": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -60,6 +61,11 @@
         "tag": "v0.1.0",
         "commit": "7bd8964f6d4e436eb18e5f45c7bf99bf7b1e2cfc"
       },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.5",
+        "commit": "bbd0a8a46ae02526c2ebfee05fa8075d8d04a9ba"
+      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
@@ -67,8 +73,8 @@
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.7.0",
-        "commit": "77d267aec4ba8a70f677e5d9ef9fb91fb0e3f0f6"
+        "tag": "v1.0.0",
+        "commit": "914144f1ce328cf397d2a9b50537a072e9302a07"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

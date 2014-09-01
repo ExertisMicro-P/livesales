@@ -20,8 +20,13 @@ Template.faqssection.helpers({
 
 Template.messagessection.rendered = function () {
   setInterval(function() {
-        $("#messagessection .scrolldiv").scrollTop( $("#messagessection .scrolldiv").prop('scrollHeight'));
-  }, 1000)
+        //$("#messagessection .scrolldiv").scrollTop( $("#messagessection .scrolldiv").prop('scrollHeight'));
+        $("#messagessection .scrolldiv").animate({ scrollTop: $("#messagessection .scrolldiv").prop('scrollHeight') }, 
+                                                 {
+                                                   duration: 600,
+                                                   easing: 'swing'}
+                                                );  
+  }, 3000)
 };
 
 Template.salessection.helpers({
@@ -131,7 +136,7 @@ Template.faq.helpers({
 
 
 Template.message.events({
- 'click .messagerow': function(e) {
+ 'click .messagerow, tap .messagerow': function(e) {
    e.preventDefault();
    
    if ($(e.target).hasClass('messagerow'))
