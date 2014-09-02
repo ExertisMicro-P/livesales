@@ -1,0 +1,18 @@
+<template name="faqssection">
+  <h3>FAQs</h3>
+   <div class="scrolldiv">
+       {{#each faqs}}
+         {{>faq}}
+       {{/each}}
+     </div>
+</template>  
+
+
+
+<template name="faq">
+  <div class="row faqrow">
+    <div class="col-md-12 well">
+      {{{formattedMessage}}}
+    </div>
+  </div>
+</template>

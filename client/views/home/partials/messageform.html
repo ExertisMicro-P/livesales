@@ -1,0 +1,15 @@
+<template name="messageform">
+        <form role="form">
+        <div class="form-group col-md-9">
+          <label class="sr-only" for="messagetosend">Message:</label>
+          <textarea class="form-control" id="messagetosend" placeholder="Type your message"></textarea>
+        </div>
+        <div class="form-group col-md-3 messageformbuttons">
+          <p>
+          <button type="button" class="btn btn-{{sendbtnclass}}" id="send">{{sendbtntext}}</button><br>
+          </p>
+          <button type="button" class="btn btn-warning" id="savefaq">Save as FAQ</button>
+        </div>
+      </form>
+
+</template>

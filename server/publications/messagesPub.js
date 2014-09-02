@@ -1,5 +1,8 @@
-Meteor.publish('messages', function () {
-  currentuser = Meteor.users.findOne({_id:this.userId});
+Meteor.publish('messages', function (userId) {
+  if (!userId) return false;
+  
+  //currentuser = Meteor.users.findOne({_id:this.userId});
+  currentuser = Meteor.users.findOne({_id:userId});
   console.log(currentuser.username);
   return messages.find(
        {$or: [

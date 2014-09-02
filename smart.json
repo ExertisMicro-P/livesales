@@ -9,6 +9,7 @@
     "moment": {},
     "font-awesome": {},
     "animated-each": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "modernizr-meteor": {}
   }
 }
