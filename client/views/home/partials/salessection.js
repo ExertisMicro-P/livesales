@@ -48,6 +48,14 @@ Template.tally.helpers({
       return 'online';
     else
       return 'offline';
+  },
+  
+  isMe : function() {
+    if (this.userId == Meteor.user()._id) 
+      return true;
+    else
+      return false;
   }
+
 });
 

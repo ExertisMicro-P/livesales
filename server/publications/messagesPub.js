@@ -1,7 +1,7 @@
 Meteor.publish('messages', function () {
-  //console.log('publish '+userId);
+  console.log('publish ');console.log(this.userId);
   
-  //if (!userId) return false;
+  if (!this.userId) return false;
   
   currentuser = Meteor.users.findOne({_id:this.userId});
   //currentuser = Meteor.users.findOne({_id:userId});

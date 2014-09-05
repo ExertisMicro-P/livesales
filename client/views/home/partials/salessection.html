@@ -6,8 +6,7 @@
        {{#each usersales}}
          {{>tally}}
        {{/each}}
-  <button type="button" class="btn btn-default" id="sell" data-toggle="tooltip" data-placement="bottom" title="Add 1 Sale"><span class="glyphicon glyphicon-plus-sign"></span></button>
-  <button type="button" class="btn btn-default" id="undosell" data-toggle="tooltip" data-placement="bottom" title="Cancel 1 Sale"><span class="glyphicon glyphicon-minus-sign"></span></button>
+  
      </div>
 </template>  
 
@@ -23,7 +22,15 @@
     <div class="col-md-1">
       {{sales}}
     </div>
-
   </div>
+  {{#if isMe}}
+    <div class="row faqrow buttonrow">
+      <div class="col-md-12">
+      <button type="button" class="btn btn-default btn-lg" id="sell" data-toggle="tooltip" data-placement="bottom" title="Add 1 Sale"><span class="glyphicon glyphicon-plus-sign"></span></button>
+  <button type="button" class="btn btn-default btn-lg" id="undosell" data-toggle="tooltip" data-placement="bottom" title="Cancel 1 Sale"><span class="glyphicon glyphicon-minus-sign"></span></button>
+       </div>
+    </div>
+  {{/if}}
+
   {{/if}}
 </template>
