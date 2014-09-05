@@ -17,6 +17,21 @@ Meteor.methods({
   }, // send
   
   
+  
+  deletemessage: function(id) {
+    var user = Meteor.user();
+
+    // ensure the user is logged in
+    if (!user)
+      throw new Meteor.Error(401, "You need to login to delete messages");
+        
+    return messages.remove(id);
+
+  }, // deletemessage
+  
+  
+  
+  
   savefaq: function(faqAttributes) {
     var user = Meteor.user();
 
@@ -34,7 +49,16 @@ Meteor.methods({
     return faqId;
   }, // savefaq
   
-  
+  deletefaq: function(id) {
+    var user = Meteor.user();
+
+    // ensure the user is logged in
+    if (!user)
+      throw new Meteor.Error(401, "You need to login to delete faqs");
+        
+    return faqs.remove(id);
+
+  }, // deletemessage
   
   incsales: function(user) {
     sales.upsert({username: user.username, userId: user._id}, {$inc: {sales: 1}})

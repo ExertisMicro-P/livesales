@@ -27,8 +27,13 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-6 recipient messagefooter">
+        <div class="col-xs-11 col-md-5 col-md-offset-6 recipient messagefooter">
            to {{recipient}}
+        </div>
+        <div class="col-xs-1 col-md-1 messagefooter">
+          {{#if isMine}}
+           <span class="glyphicon glyphicon-remove delete"></span>
+          {{/if}}
         </div>
       </div>
     </div>

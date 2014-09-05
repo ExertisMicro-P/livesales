@@ -1,5 +1,5 @@
 <template name="faqssection">
-  <h3>FAQs</h3>
+  <h3>FAQs <span class="badge">{{faqcount}}</span></h3>
    <div class="scrolldiv">
        {{#each faqs}}
          {{>faq}}
@@ -11,8 +11,13 @@
 
 <template name="faq">
   <div class="row faqrow">
-    <div class="col-md-12 well">
+    <div class="col-md-10 well">
       {{{formattedMessage}}}
+    </div>
+    <div class="col-md-1">
+      {{#if isMine}}
+      <span class="glyphicon glyphicon-remove delete"></span>
+      {{/if}}
     </div>
   </div>
 </template>

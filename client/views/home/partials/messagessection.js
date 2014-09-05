@@ -64,7 +64,7 @@ Template.messageform.events({
  } // click #savefaq 
 });
 
-
+/* ========================================== */
 
 Template.message.helpers({
   createAtMoment : function() {
@@ -76,34 +76,28 @@ Template.message.helpers({
    console.log(this.message);
       return marked(this.message);
     
+  },
+  
+  isMine: function() {
+    return (this.originator == Meteor.user().username);
+
   }
   
 });
 
 
-
 Template.message.events({
- 'click .messagerow, tap .messagerow': function(e) {
-   e.preventDefault();
+ 'click .delete': function(e) {
+    e.preventDefault();
    
-   if ($(e.target).hasClass('messagerow'))
-     rowClicked = $(e.target);
-   else
-     rowClicked = $(e.target).parent();
-   
-   if ($(rowClicked).hasClass('selected')) {
-     $(rowClicked).removeClass('selected');
-     Session.set('sendToUserId', false);
-   } else {
-     // mustn't allow sending messages to yourself
-     if (this.originator != Meteor.user().username) {
-       $('.messagerow.selected').removeClass('selected');
-       $(rowClicked).addClass('selected');
-       Session.set('sendToUserId', this.originator);
-     }
-   }
- }
-});
+     Meteor.call('deletemessage', this._id, function(error, id) {
+      if (error)
+        return alert(error.reason);
+    });
+ } // click delete
+}); // message.events
+
+
 
 
 
