@@ -17,7 +17,8 @@
       "modernizr-meteor": {},
       "marked": {},
       "sp-epic-editor": {},
-      "pagedown-bootstrap": {}
+      "pagedown-bootstrap": {},
+      "presence": {}
     },
     "packages": {
       "iron-router": {
@@ -90,6 +91,11 @@
         "tag": "v0.0.4",
         "commit": "1ebc5c2b374da9362ab92cd485642e32e70b9369"
       },
+      "presence": {
+        "git": "https://github.com/dburles/meteor-presence.git",
+        "tag": "v0.4.8",
+        "commit": "91e24bd3197ab5d86e39f38daa46193ef419aad2"
+      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
@@ -97,8 +103,8 @@
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v1.0.0",
-        "commit": "914144f1ce328cf397d2a9b50537a072e9302a07"
+        "tag": "v1.0.2",
+        "commit": "21a4ce06ae29bff2fb1203c44ea24e61f1c3edba"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

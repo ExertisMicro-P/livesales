@@ -13,7 +13,7 @@ Template.salessection.rendered = function(){
 Template.salessection.events({
  'click #sell': function(e) {
    e.preventDefault();
-    Meteor.call('incsales', Meteor.user().username, function(error, id) {
+    Meteor.call('incsales', Meteor.user(), function(error, id) {
       if (error)
         return alert(error.reason);
     });
@@ -25,11 +25,29 @@ Template.salessection.events({
    usertodecrement = sales.find({username: username}).fetch()[0];
    if (usertodecrement.sales > 0) {
        e.preventDefault();
-      Meteor.call('decsales', Meteor.user().username, function(error, id) {
+      Meteor.call('decsales', Meteor.user(), function(error, id) {
         if (error)
           return alert(error.reason);
       });
    }
  } // click #undosell 
 }); // Template.salessection.events
+
+
+
+Template.tally.helpers({
+  userPresenceIcon : function() {
+    if (Presences.findOne({userId: this.userId})) 
+      return 'glyphicon glyphicon-user';
+    else
+      return 'glyphicon glyphicon-remove-circle';
+  },
+  
+  userPresenceText : function() {
+    if (Presences.findOne({userId: this.userId})) 
+      return 'online';
+    else
+      return 'offline';
+  }
+});
 

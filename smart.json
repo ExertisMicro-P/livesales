@@ -13,6 +13,7 @@
     "modernizr-meteor": {},
     "marked": {},
     "sp-epic-editor": {},
-    "pagedown-bootstrap": {}
+    "pagedown-bootstrap": {},
+    "presence": {}
   }
 }

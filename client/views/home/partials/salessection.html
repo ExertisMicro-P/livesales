@@ -1,26 +1,29 @@
 <template name="salessection">
   <h3>Sales
-  <button type="button" class="btn btn-default" id="sell" data-toggle="tooltip" data-placement="bottom" title="Add 1 Sale"><span class="glyphicon glyphicon-plus-sign"></span></button>
-  <button type="button" class="btn btn-default" id="undosell" data-toggle="tooltip" data-placement="bottom" title="Cancel 1 Sale"><span class="glyphicon glyphicon-minus-sign"></span></button>
   </h3>
   
    <div class="scrolldiv">
        {{#each usersales}}
          {{>tally}}
        {{/each}}
+  <button type="button" class="btn btn-default" id="sell" data-toggle="tooltip" data-placement="bottom" title="Add 1 Sale"><span class="glyphicon glyphicon-plus-sign"></span></button>
+  <button type="button" class="btn btn-default" id="undosell" data-toggle="tooltip" data-placement="bottom" title="Cancel 1 Sale"><span class="glyphicon glyphicon-minus-sign"></span></button>
      </div>
 </template>  
 
 
 
 <template name="tally">
+  <!-- ignore old format user records which didn't include the ID -->
+  {{#if userId}}
   <div class="row faqrow">
     <div class="col-md-8">
-      {{username}}
+      <span title="{{userPresenceText}}" class="{{userPresenceIcon}}"> {{username}}</span>
     </div>
     <div class="col-md-1">
       {{sales}}
     </div>
 
   </div>
+  {{/if}}
 </template>
