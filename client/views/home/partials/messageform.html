@@ -2,7 +2,8 @@
         <form role="form">
         <div class="form-group col-md-9">
           <label class="sr-only" for="messagetosend">Message:</label>
-          <textarea class="form-control" id="messagetosend" placeholder="Type your message"></textarea>
+          <!--<textarea class="form-control" id="messagetosend" placeholder="Type your message"></textarea>-->
+          {{> editor}}
         </div>
         <div class="form-group col-md-3 messageformbuttons">
           <p>
@@ -12,4 +13,36 @@
         </div>
       </form>
 
+</template>
+
+
+
+<template name="editor">
+    <div id="description">
+        <button type="button" class="btn btn-primary btn-xs" id="edit-btn" style="float: right; display: none;" title="Edit mode"><i class="fa fa-edit" id="edit-btn-icon"></i></button>
+        <button type="button" class="btn btn-primary btn-xs" id="preview-btn" style="float: right;" title="Preview mode"><i class="fa fa-eye" id="preview-btn-icon"></i></button>
+       
+        <div class='wmd-panel'>
+            <div class="wmd-button-bar" id="wmd-button-bar"></div>
+            <div class="wmd-preview" id="wmd-preview" tabindex="4" style="display: none;">
+            </div>
+            <!-- <textarea class='wmd-input' id="wmd-input"></textarea> -->
+          <textarea class="form-control wmd-input" id="wmd-input" placeholder="Type your message"></textarea>
+          
+          
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#demo">tips</button>
+
+          <div id="demo" class="collapse">
+            <ul>
+              <li>Use 'Markdown' to format your Message - see <a href="http://www.codecademy.com/courses/web-intermediate-en-Bw3bg/0/1">this online Markdown course</a> or <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">this cheatsheet</a></li>
+              <li>Do NOT paste from MS Word!</li>
+            </ul>
+          </div>
+          
+          
+          
+    
+        </div>
+        
+    </div>
 </template>

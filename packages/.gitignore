@@ -33,3 +33,6 @@ iron-router-progress
 /animated-each
 /accounts-ui-bootstrap-3
 /modernizr-meteor
+/marked
+/sp-epic-editor
+/pagedown-bootstrap

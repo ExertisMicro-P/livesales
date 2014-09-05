@@ -14,7 +14,10 @@
       "font-awesome": {},
       "animated-each": {},
       "accounts-ui-bootstrap-3": {},
-      "modernizr-meteor": {}
+      "modernizr-meteor": {},
+      "marked": {},
+      "sp-epic-editor": {},
+      "pagedown-bootstrap": {}
     },
     "packages": {
       "iron-router": {
@@ -71,6 +74,21 @@
         "git": "https://github.com/ckir/modernizr-meteor.git",
         "tag": "v2.6.2",
         "commit": "391ca2a3beff3cd2b0e1099cb2d744b5a2e8a73e"
+      },
+      "marked": {
+        "git": "https://github.com/chuangbo/meteor-marked.git",
+        "tag": "v0.3.3",
+        "commit": "a0966771f9108835755368d0879429675d7e0db4"
+      },
+      "sp-epic-editor": {
+        "git": "https://bitbucket.org/parhelium/sp-epic-editor",
+        "tag": "v0.0.3",
+        "commit": "1de330c49a955411d40647bdfdf6a3625c7447e6"
+      },
+      "pagedown-bootstrap": {
+        "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
+        "tag": "v0.0.4",
+        "commit": "1ebc5c2b374da9362ab92cd485642e32e70b9369"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

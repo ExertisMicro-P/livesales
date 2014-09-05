@@ -1,9 +1,7 @@
 Template.messagessection.helpers({
   messages : function() {
-    if (!Meteor.user())
-      return false;
-    else 
-      return messages.find();
+    console.log('here');
+      return messages.find({});
   }
 });
 
@@ -15,8 +13,9 @@ Template.messagessection.rendered = function () {
                                                  {
                                                    duration: 600,
                                                    easing: 'swing'}
-                                                );  
-  }, 3000)
+                                                ); 
+  }, 3000);
+    $('#tips').collapse('hide');
 };
 
 
@@ -39,7 +38,7 @@ Template.messageform.events({
      var message = {
        recipient: Session.get('sendToUserId') ? Session.get('sendToUserId') : '(BROADCAST)',
        type: !Session.get('sendToUserId') ? 'BROADCAST' : 'DIRECT',
-       message: $('#messagetosend').val()
+       message: $('#wmd-input').val()
      }
 
    
@@ -54,7 +53,7 @@ Template.messageform.events({
    
    
      var faq = {
-       message: $('#messagetosend').val()
+       message: $('#wmd-input').val()
      }
 
    
@@ -73,7 +72,10 @@ Template.message.helpers({
   },
   
   formattedMessage : function() {
-    return Autolinker.link( this.message, { className: "boldlink", truncate: 25 } );
+    //return Autolinker.link( this.message, { className: "boldlink", truncate: 25 } );
+   console.log(this.message);
+      return marked(this.message);
+    
   }
   
 });
@@ -102,3 +104,58 @@ Template.message.events({
    }
  }
 });
+
+
+
+
+/**
+ * Markdown Editor dupport for Job Descriptions
+ */
+if (typeof Template.editor.created == 'undefined') {
+  Template.editor.created = function() {
+      this.editor = false;
+  };
+  
+  Template.editor.rendered = function() {
+      if (!this.editor) {
+          var converter = {
+              makeHtml: function(text) { return marked(text); }
+          };
+  
+          var editor = new Markdown.Editor(converter);
+          editor.run();
+          this.editor = true;
+      }
+     
+      $('#edit-btn').tooltip({placement: 'bottom'})
+      $('#preview-btn').tooltip({placement: 'bottom'})
+      $('table').addClass('table table-striped table-bordered table-hover');
+  }
+  
+  
+  
+  Template.editor.events({
+      'click a': function(e) {
+          // always follow links
+          e.stopPropagation();
+      },
+      'click #preview-btn': function(e, t) {
+          e.preventDefault();
+          var description = $('#innerEditor').text();
+          $('#wmd-input').hide();
+          $('#preview-btn').hide();
+          $('#wmd-preview').show();
+          $('#edit-btn').show();
+          $('table').addClass('table table-striped table-bordered table-hover');
+      },
+      'click #edit-btn': function(e) {
+          e.preventDefault();
+          $('#wmd-preview').hide();
+          $('#edit-btn').hide();
+          $('#wmd-input').show();
+          $('#preview-btn').show();
+      },
+  });
+} else {
+  console.log('create_job: not rendering Markdown Editor!');
+}
