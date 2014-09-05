@@ -40,7 +40,7 @@ Meteor.methods({
     sales.upsert({username: user.username, userId: user._id}, {$inc: {sales: 1}})
   }, // incsales
 
-  decsales: function(username) {
+  decsales: function(user) {
     sales.upsert({username: user.username, userId: user._id}, {$inc: {sales: -1}})
   } // decsales
 

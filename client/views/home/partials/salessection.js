@@ -1,6 +1,7 @@
 Template.salessection.helpers({
   usersales : function() {
-    return sales.find({}, {sort: {sales: -1}});
+    return Presences.find({});
+    //return sales.find({}, {sort: {sales: -1}});
   }
 });
 
@@ -22,7 +23,7 @@ Template.salessection.events({
  'click #undosell': function(e) {
    username = Meteor.user().username;
    console.log('Decrementing '+ username);
-   usertodecrement = sales.find({username: username}).fetch()[0];
+   usertodecrement = sales.findOne({userId: Meteor.user()._id});
    if (usertodecrement.sales > 0) {
        e.preventDefault();
       Meteor.call('decsales', Meteor.user(), function(error, id) {
@@ -48,6 +49,22 @@ Template.tally.helpers({
       return 'online';
     else
       return 'offline';
+  },
+  
+  username : function() {
+    user = Meteor.users.findOne({_id: this.userId});
+    return user.username;
+    /*
+    
+      */
+  },
+  
+  sales : function() {
+    salestally = sales.findOne({userId: this.userId});
+    if (salestally) 
+      return salestally.sales;
+    else
+      return 0;
   },
   
   isMe : function() {
