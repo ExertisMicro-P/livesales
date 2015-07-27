@@ -1,7 +1,18 @@
 Template.salessection.helpers({
-users : function() {
+  users : function() {
     return Meteor.users.find({});
     //return sales.find({}, {sort: {sales: -1}});
+  },
+  salescount: function() {
+    users = Meteor.users.find({});
+    totalsales = 0;
+    users.forEach(function(user) {
+      console.log(user);
+      salestally = sales.findOne({userId: user._id});
+      totalsales += salestally.sales
+    });
+    
+    return totalsales;
   }
 });
 
